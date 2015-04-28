@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>estacao.embalagem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>TRENDnet Brasil</h1>
+<h2>Projeto para Estação de Embalagem de Fábrica</h2>
+<h3>Solução solicitada pelo cliente</h3>
+<pre><code>From: Jose Luis
+
+Bom dia!
+Preciso de uma solução de gravação por ip.
+
+Uma câmera IP e gravação no HD do computador local sendo iniciada a gravação de vídeo quando houver movimento.
+
+ele quer que customize o nome do arquivo isso é:
+Se a câmera gravar c:\Videos\grav01.avi
+para C:\videos\codigo_grav01.avi
+
+Existe alguma solução que atenda essa solicitação??
+
+att
+</code></pre>
+
+<h3>Estação de embalagem da fábrica</h3>
+<p>Em contato com José Luís, foram obtidas informações a respeito do trabalho a ser realizado. Trata-se de uma estação de embalagem da linha de produção de uma fábrica que precisa monitorar e gravar as imagens da operação, através de uma câmera IP. A estação contém uma mesa onde será embalado o produto. A câmera IP está iluminando a mesa, de forma a registrar a embalagem do produto final. Equipando a estação há um micro acoplado a uma balança.</p>
+<h3>Sequência de operação</h3>
+<ul>
+<li>Uma EMBALAGEM numerada, ou seja, identificada por um CÓDIGO, é colocada na mesa;</li>
+<li>O micro tem conhecimento prévio do CÓDIGO da EMBALAGEM no início da operação;</li>
+<li>A câmera IP deve iniciar a gravação das imagens, associando-as ao CÓDIGO;</li>
+<li>O produto final é acondicionado dentro da EMBALAGEM pelo operador;</li>
+<li>O micro é acionado para registrar o peso total da EMBALAGEM;</li>
+<li>A EMBALAGEM é retirada da estação ao final da operação;</li>
+<li>O vídeo da operação fica acessível através do CÓDIGO;</li>
+</ul>
+<h3>Diagrama da Rede Local</h3>
+<p>O diagrama abaixo mostra a arquitetura utilizada na Estação de Embalagem. O micro está conectado à câmera através da rede local. O switch da rede está representado pela barra horizontal, com endereços IP na faixa 192.168.10.X. </p>
+<p><img src="http://i.imgur.com/wXC1dxz.png" alt="Estação Embalagem" /></p>
+<p>Para efeito deste exemplo, os endereços IP da rede são portanto:</p>
+<pre><code>192.168.10.35  TV-IP302PI
+192.168.10.101 Micro
+</code></pre>
+
+<h3>Solução sugerida</h3>
+<p>A detecção de movimento é o melhor gatilho para disparar a gravação das imagens. Esse método é bastante preciso, sensível a qualquer movimentação na área iluminada pela câmera. A câmera TRENDnet TV-IP302 possui ainda portas de entrada e saída que podem ser utilizadas com sensores de presença para detetar o início da operação. Contudo, a introdução de mais hardware sempre pode comprometer a confiabilidade da solução.</p>
+<p><img src="http://i.imgur.com/hI7TiNT.jpg" alt="TV-IP302PI" /></p>
+<p>Utilizaremos o micro para armazenar os vídeos gerados pela câmera IP. Supondo que há possibilidade de acionar um software no micro para gerenciar a operação, podemos executar os passos descritos a seguir.</p>
+<h4>1. Criar área compartilhada no micro</h4>
+<p>Com o Windows Explorer, criar a pasta <code>c:/_public/cam</code> no micro para armazenar os vídeos, como visto abaixo:</p>
+<p><img src="http://i.imgur.com/8EmRwsy.png" alt="Share 1" /></p>
+<p>Clicar com botão direito do mouse na pasta criada e selecionar <code>Share with Specific People</code>.</p>
+<p><img src="http://i.imgur.com/CFSoimG.png" alt="Share 2" /></p>
+<p>Selecionar <code>Everyone</code> como visto a seguir.</p>
+<p><img src="http://i.imgur.com/Gna4IbR.png" alt="Share 3" /></p>
+<p>Habilitar permissão de <code>Leitura/Escrita</code>, conforme mostrado a seguir e clicar no botão <code>Share</code>. </p>
+<p><img src="http://i.imgur.com/COP3MNT.png" alt="Share 4" /></p>
+<p>Para verificar que a pasta está realmente disponível em rede, acessar pelo Windows Explorer, utilizando o endereço baseado no nome do micro (<code>\\CANOAS22</code>) e constatar que a pasta compartilhada aparece. </p>
+<p><img src="http://i.imgur.com/a42q5OL.png" alt="Share 5" /></p>
+<h4>2. Configuração da câmera TV-IP302PI</h4>
+<p>Não iremos detalhar toda a configuração da câmera, somente as telas principais relacionadas ao acionamento da detecção de movimento. Utilizaremos um comando CGI que permite configurar a câmera através do protocolo <code>http</code>.</p>
+<p>Para esta aplicação, a câmera IP pode ser configurada em 2 passos:</p>
+<ul>
+<li>Configura-se o endereço do folder compartilhado para gravação do vídeo.</li>
+<li>Configura-se a área desejada para deteção de movimento;</li>
+</ul>
+<h5>2.1. Configuração da pasta compartilhada</h5>
+<p>Com um navegador Internet, acessar o endereço da câmera e selecionar <code>Setup | Network | Event Server</code>. Na seção <code>Samba</code> digitar o endereço da pasta compartilhada no campo <code>Location</code>. Os campos <code>Workgroup</code>, <code>Username</code> e <code>Password</code> se referem à autenticação de um usuário válido do micro.</p>
+<p><img src="http://i.imgur.com/SX03Sly.png" alt="Samba 1" /></p>
+<h5>2.2. Configuração da zona de deteção de movimento</h5>
+<p>Navegar para <code>Setup | Event Configuration | Motion Detection</code> e demarcar a área desejada onde se quer detectar o movimento.</p>
+<p><img src="http://i.imgur.com/V0TZDp8.png" alt="Deteção de Movimento" /></p>
+<p>Reparar que a <code>Area 1</code> (em azul) selecionada está associada ao Samba, ou seja, gravação de vídeo em uma pasta compartilhada de disco, utilizando o padrão Samba. Veja mais detalhes no <a href="http://trend.net.br/c/108/gravando-no-nas" title="Gravando no NAS">Projeto Gravando no NAS</a>.</p>
+<h4>3. Gravação de vídeos</h4>
+<p>Observe na pasta compartilhada que a câmera ira gravar os vídeos assim que forem detectados movimentos na zona azul pré-configurada.</p>
+<p><img src="http://i.imgur.com/9m2l5Qc.png" alt="Gravação vídeos" /></p>
+<p>Os nomes dos arquivos incluem a data e a hora em que o vídeo foi gravado, como abaixo:</p>
+<pre><code>\\CANOAS22\cam\20150428\161956m.avi
+</code></pre>
+
+<h4>4. Introdução do CÓDIGO da EMBALAGEM</h4>
+<p>Para completar a especificação do projeto, é preciso associar os vídeos gravados com o CÓDIGO de cada EMBALAGEM montada na linha de produção. Para isso, utilizaremos dois comandos CGI suportados pela câmera TRENDnet TV-IP302PI.</p>
+<p>Estes comandos deverão ser executados a partir de um software do micro, em sincronismo com a linha de produção. Uma opção seria o próprio micro já saber o CÓDIGO da EMBALAGEM a ser montada. Outra opção seria, por exemplo, um leitor de código de barras no micro que fosse acionado para ler a etiqueta da EMBALAGEM. De qualquer forma, o micro deve saber de antemão, antes da operação iniciar, qual o CÓDIGO da EMBALAGEM a ser montada.</p>
+<p>Para simular o software do micro utilizaremos um navegador Internet nesse exemplo.</p>
+<h5>4.1 Comando GetSamba</h5>
+<p>Através do navegador Internet, digitaremos o comando CGI abaixo na linha de endereço:</p>
+<pre><code>http://192.168.10.35/GetSamba.cgi
+</code></pre>
+
+<p>O resultado surge na tela do navegador, visto abaixo:</p>
+<p><img src="http://i.imgur.com/MXI1kwM.png" alt="GetSamba" /></p>
+<p>Repare que a câmera retornou com o parâmetros de configuração do Samba:</p>
+<pre><code>SMB_URL=\\192.168.10.104\cam
+SMB_Group=workgroup
+SMB_User=studio
+SMB_Pwd=tnet
+SMB_Isaddfolder=0
+</code></pre>
+
+<h5>4.2 Comando SetSamba</h5>
+<p>Como precisamos introduzir o CÓDIGO da EMBALAGEM para criar uma área customizada para armazenamento dos vídeos, vamos primeiro criar um novo folder com um CODIGO, por exemplo, <code>SKU-1234</code>, dentro da pasta <code>cam</code>.</p>
+<p><img src="http://i.imgur.com/jh2AFKv.png" alt="Codigo 1" /></p>
+<p>Agora utilizaremos o comando abaixo para configurar a câmera para gravar na nova pasta:</p>
+<pre><code>http://192.168.10.35/SetSamba.cgi?SMB_URL=\\192.168.10.104\cam\SKU-1234&amp;SMB_Group=workgroup&amp;SMB_User=studio&amp;SMB_Pwd=tnet&amp;SMB_Isaddfolder=0
+</code></pre>
+
+<p><img src="http://i.imgur.com/QQgw5FF.png" alt="SetSamba" /></p>
+<p>Repare que ao acessarmos novamente a câmera pelo navegador, a nova configuração será exibida no menu <code>Setup | Network | Event Server</code>.</p>
+<p><img src="http://i.imgur.com/7k4bM5R.png" alt="New Samba" /></p>
+<p>A partir deste momento, assim que for detectado movimento, vídeos serão gravados na pasta que inclui o CÓDIGO da EMBALAGEM, ou seja, <code>SKU-1234</code>, acrescida das informações de data e hora:</p>
+<pre><code>\\CANOAS22\cam\SKU-1234\20150428
+</code></pre>
+
+<p><img src="http://i.imgur.com/zAKCSsb.png" alt="Código OK" /></p>
+<p>Desta forma, temos uma pasta compartilhada na rede com os videos gravados em função dos CÓDIGOS das EMBALAGENS montadas na linha de produção.</p>
+<p><img src="http://i.imgur.com/tGA9r2j.png" alt="Pasta com CÓDIGO da EMBALAGEM" /> </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
