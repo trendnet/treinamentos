@@ -1,7 +1,7 @@
-#TRENDnet Brasil
+# TRENDnet Brasil
 ## Projeto para Estação de Embalagem de Fábrica
 
-###Solução solicitada pelo cliente
+### Solução solicitada pelo cliente
 
     From: Jose Luis
 
@@ -18,11 +18,11 @@
     
     att
 
-###Estação de embalagem da fábrica
+### Estação de embalagem da fábrica
 
 Em contato com José Luís, foram obtidas informações a respeito do trabalho a ser realizado. Trata-se de uma estação de embalagem da linha de produção de uma fábrica que precisa monitorar e gravar as imagens da operação, através de uma câmera IP. A estação contém uma mesa onde será embalado o produto. A câmera IP está iluminando a mesa, de forma a registrar a embalagem do produto final. Equipando a estação há um micro acoplado a uma balança.
 
-###Sequência de operação
+### Sequência de operação
 
 - Uma EMBALAGEM numerada, ou seja, identificada por um CÓDIGO, é colocada na mesa;
 - O micro tem conhecimento prévio do CÓDIGO da EMBALAGEM no início da operação;
@@ -32,7 +32,7 @@ Em contato com José Luís, foram obtidas informações a respeito do trabalho a
 - A EMBALAGEM é retirada da estação ao final da operação;
 - O vídeo da operação fica acessível através do CÓDIGO;
 
-###Diagrama da Rede Local
+### Diagrama da Rede Local
 O diagrama abaixo mostra a arquitetura utilizada na Estação de Embalagem. O micro está conectado à câmera através da rede local. O switch da rede está representado pela barra horizontal, com endereços IP na faixa 192.168.10.X. 
 
 ![Estação Embalagem](http://i.imgur.com/wXC1dxz.png)
@@ -42,7 +42,7 @@ Para efeito deste exemplo, os endereços IP da rede são portanto:
     192.168.10.35  TV-IP302PI
     192.168.10.101 Micro
 
-###Solução sugerida
+### Solução sugerida
 
 A detecção de movimento é o melhor gatilho para disparar a gravação das imagens. Esse método é bastante preciso, sensível a qualquer movimentação na área iluminada pela câmera. A câmera TRENDnet TV-IP302 possui ainda portas de entrada e saída que podem ser utilizadas com sensores de presença para detetar o início da operação. Contudo, a introdução de mais hardware sempre pode comprometer a confiabilidade da solução.
 
@@ -50,7 +50,7 @@ A detecção de movimento é o melhor gatilho para disparar a gravação das ima
 
 Utilizaremos o micro para armazenar os vídeos gerados pela câmera IP. Supondo que há possibilidade de acionar um software no micro para gerenciar a operação, podemos executar os passos descritos a seguir.
 
-####1. Criar área compartilhada no micro  
+#### 1. Criar área compartilhada no micro  
 
 Com o Windows Explorer, criar a pasta `c:/_public/cam` no micro para armazenar os vídeos, como visto abaixo:
 
@@ -72,7 +72,7 @@ Para verificar que a pasta está realmente disponível em rede, acessar pelo Win
 
 ![Share 5](http://i.imgur.com/a42q5OL.png)
 
-####2. Configuração da câmera TV-IP302PI
+#### 2. Configuração da câmera TV-IP302PI
 
 Não iremos detalhar toda a configuração da câmera, somente as telas principais relacionadas ao acionamento da detecção de movimento. Utilizaremos um comando CGI que permite configurar a câmera através do protocolo `http`.
 
@@ -81,13 +81,13 @@ Para esta aplicação, a câmera IP pode ser configurada em 2 passos:
 - Configura-se o endereço do folder compartilhado para gravação do vídeo.
 - Configura-se a área desejada para deteção de movimento;
 
-#####2.1. Configuração da pasta compartilhada
+##### 2.1. Configuração da pasta compartilhada
 
 Com um navegador Internet, acessar o endereço da câmera e selecionar `Setup | Network | Event Server`. Na seção `Samba` digitar o endereço da pasta compartilhada no campo `Location`. Os campos `Workgroup`, `Username` e `Password` se referem à autenticação de um usuário válido do micro.
 
 ![Samba 1](http://i.imgur.com/SX03Sly.png)
 
-#####2.2. Configuração da zona de deteção de movimento
+##### 2.2. Configuração da zona de deteção de movimento
 
 Navegar para `Setup | Event Configuration | Motion Detection` e demarcar a área desejada onde se quer detectar o movimento.
 
@@ -95,7 +95,7 @@ Navegar para `Setup | Event Configuration | Motion Detection` e demarcar a área
 
 Reparar que a `Area 1` (em azul) selecionada está associada ao Samba, ou seja, gravação de vídeo em uma pasta compartilhada de disco, utilizando o padrão Samba. Veja mais detalhes no [Projeto Gravando no NAS](http://trend.net.br/c/108/gravando-no-nas "Gravando no NAS").
 
-####3. Gravação de vídeos
+#### 3. Gravação de vídeos
 
 Observe na pasta compartilhada que a câmera ira gravar os vídeos assim que forem detectados movimentos na zona azul pré-configurada.
 
@@ -105,7 +105,7 @@ Os nomes dos arquivos incluem a data e a hora em que o vídeo foi gravado, como 
 
     \\CANOAS22\cam\20150428\161956m.avi
 
-####4. Introdução do CÓDIGO da EMBALAGEM
+#### 4. Introdução do CÓDIGO da EMBALAGEM
 
 Para completar a especificação do projeto, é preciso associar os vídeos gravados com o CÓDIGO de cada EMBALAGEM montada na linha de produção. Para isso, utilizaremos dois comandos CGI suportados pela câmera TRENDnet TV-IP302PI.
 
@@ -113,7 +113,7 @@ Estes comandos deverão ser executados a partir de um software do micro, em sinc
 
 Para simular o software do micro utilizaremos um navegador Internet nesse exemplo.
 
-#####4.1 Comando GetSamba
+##### 4.1 Comando GetSamba
 
 Através do navegador Internet, digitaremos o comando CGI abaixo na linha de endereço:
 
@@ -131,7 +131,7 @@ Repare que a câmera retornou com o parâmetros de configuração do Samba:
 	SMB_Pwd=tnet
 	SMB_Isaddfolder=0
 
-#####4.2 Comando SetSamba
+##### 4.2 Comando SetSamba
 
 Como precisamos introduzir o CÓDIGO da EMBALAGEM para criar uma área customizada para armazenamento dos vídeos, vamos primeiro criar um novo folder com um CODIGO, por exemplo, `SKU-1234`, dentro da pasta `cam`.
 
